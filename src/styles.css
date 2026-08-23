@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+html {
+    font-size: 16px;
+}
+
+@theme{
+    /*Fonts*/
+    --font-alegreya: 'Alegreya', sans-serif;
+    --font-bricolage: 'Bricolage Grotesque', sans-serif;
+
+}
+
+.scroll-menu::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+}
+
+.scroll-menu::-webkit-scrollbar-thumb {
+    width: 7px;
+    border-radius: 3px;
+    background-color: #FFF2;
+}
+
+:root {
+
+    --turquoise: oklch(0.739 0.092 191.76);
+
+    --primary: oklch(0.588 0.09 215.11);
+
+    /* Colores */
+    --color-fondo-boton: #2C8A9E;
+    --color-fondo-link-menu: #0C3654;
+
+    /* Colores Fondo*/
+    --color-fondo-menu: #051A36;
+    --color-fondo-light: #E7E9EB;
+
+    /* Colores Texto */
+    --color-texto-light-menu: #DADAD9;
+    --color-texto-light: #0C2340;
+
+    /* Background */
+    --color-background: #0f172a;
+    --color-surface: #1e293b;
+    --color-surface-hover: #334155;
+
+    /* Primary */
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+
+    /* Text */
+    --color-text: #f8fafc;
+    --color-text-muted: #94a3b8;
+
+    /* Status */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+
+    /* Border */
+    --color-border: #d1d5dc;
+}

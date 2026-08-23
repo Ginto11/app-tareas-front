@@ -1,0 +1,61 @@
+<a 
+    [routerLink]="['/dashboard/tarea', dataTarea().id]"
+    class="group text-(--color-texto-light) w-full 
+    h-25 rounded-2xl bg-white flex items-center 
+    justify-between px-5 shadow cursor-pointer hover:shadow-gray-400
+    border-l-3"
+    [ngClass]="{
+        'border-red-400/50': dataTarea().estado == 'Cancelada',
+        'border-blue-400/50': dataTarea().estado == 'En Progreso',
+        'border-yellow-400/50': dataTarea().estado == 'Pendiente',
+        'border-green-400/50': dataTarea().estado == 'Completada',
+    }">
+
+    <div class="flex items-center gap-3 md:gap-5">
+        <div>
+            <span
+            class="p-2 md:p-3 rounded-xl text-xl  md:text-2xl group-active:hidden" 
+            [ngClass]="{
+                'bg-red-100/50 text-red-700/50': dataTarea().estado == 'Cancelada',
+                'bg-blue-100/50 text-blue-700/50': dataTarea().estado == 'En Progreso',
+                'bg-yellow-100/50 text-yellow-700/50': dataTarea().estado == 'Pendiente',
+                'bg-green-100/50 text-green-700/50': dataTarea().estado == 'Completada',
+            }">
+                <i class="fa-solid fa-folder"></i>
+                
+            </span>
+            <span
+            class="p-2 md:p-3 rounded-xl text-xl md:text-2xl hidden group-active:block" 
+            [ngClass]="{
+                'bg-red-100/50 text-red-700': dataTarea().estado == 'Cancelada',
+                'bg-blue-100/50 text-blue-700': dataTarea().estado == 'En Progreso',
+                'bg-yellow-100/50 text-yellow-700': dataTarea().estado == 'Pendiente',
+                'bg-green-100/50 text-green-700': dataTarea().estado == 'Completada',
+            }">
+                <i class="fa-solid fa-folder-open"></i>
+                
+            </span>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h2 class="runcate text-xs md:text-base font-medium tracking-tight"> {{ dataTarea().titulo }} </h2>
+            <p class="flex gap-1 md:gap-3 text-gray-500 text-xs">
+                <span> <i class="fa-regular fa-calendar"></i> {{ dataTarea().fecha | date: 'dd MMM hh:ss a' }} </span>
+                <span class="hidden md:block"> <i class="fa-solid fa-tag"></i> {{ dataTarea().etiqueta }} </span>
+                <span> <i class="fa-solid fa-circle-user"></i> {{ dataTarea().usuario.iniciales }} </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="hidden md:flex gap-4">
+        <span 
+            [ngClass]="{
+                'bg-red-400/50': dataTarea().prioridad == 'Alta',
+                'bg-yellow-400/50': dataTarea().prioridad == 'Media',
+                'bg-blue-400/50': dataTarea().prioridad == 'Baja'
+            }"
+            class="border border-(--color-border) py-1 px-2 rounded-xl"> 
+                {{ dataTarea().prioridad }} 
+        </span>
+        <span class="border border-(--color-border) shadow py-1 px-2 rounded-xl"> {{ dataTarea().categoria }} </span>
+    </div>
+</a>

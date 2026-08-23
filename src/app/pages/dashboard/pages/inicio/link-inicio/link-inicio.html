@@ -1,0 +1,8 @@
+<a 
+    [routerLink]="datalink().ruta"
+    [queryParams]="datalink().queryParams"
+    routerLinkActive="border-(--color-fondo-boton) text-gray-800"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="block h-8 border-b-2 text-gray-500 border-(--color-border) text-center text-sm px-1  md:px-3 items-center">
+    {{ datalink().texto }}
+</a>

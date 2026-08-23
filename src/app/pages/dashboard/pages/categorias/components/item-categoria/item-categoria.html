@@ -1,0 +1,42 @@
+<a
+  [routerLink]="['/dashboard/categoria']"
+  [queryParams]="categoria().queryParam"
+  class="block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+>
+  <div class="mb-5 flex items-start justify-between">
+    <div>
+      <div class="mb-2 flex items-center gap-2">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+          <i [ngClass]="categoria().icono"></i>
+        </div>
+
+        <h2 class="text-lg font-semibold text-gray-900"> {{ categoria().titulo }} </h2>
+      </div>
+
+      <p class="text-sm text-gray-500"> {{ categoria().cantidadTotalTareas }}  tareas en total</p>
+    </div>
+    
+  </div>
+
+  <div class="grid grid-cols-2 gap-2">
+    <div class="rounded-xl bg-gray-50 p-3">
+      <p class="text-xs text-gray-500">Total</p>
+      <p class="mt-1 text-xl font-bold text-gray-900"> {{ categoria().cantidadTotalTareas }} </p>
+    </div>
+
+    <div class="rounded-xl bg-green-50 p-3">
+      <p class="text-xs text-green-600">Completadas</p>
+      <p class="mt-1 text-xl font-bold text-green-700"> {{ categoria().cantidadTotalCompletadas }} </p>
+    </div>
+
+    <div class="rounded-xl bg-amber-50 p-3">
+      <p class="text-xs text-amber-600">Pendientes</p>
+      <p class="mt-1 text-xl font-bold text-amber-700"> {{ categoria().cantidadTotalPendientes  }} </p>
+    </div>
+    <div class="rounded-xl bg-red-50 p-3">
+      <p class="text-xs font-medium text-red-600">Canceladas</p>
+      <p class="text-sm font-bold text-red-700"> {{ categoria().cantidadTotalCanceladas  }} </p>
+    </div>
+  </div>
+
+</a>

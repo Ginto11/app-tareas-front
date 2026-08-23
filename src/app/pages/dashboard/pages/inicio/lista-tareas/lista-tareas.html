@@ -1,0 +1,6 @@
+<div
+    class="py-5 flex flex-col gap-3">
+    @for (tarea of tareaStore.tareasSeleccionadas(); track tarea.id) {
+        <app-item-tarea [dataTarea]="tarea" />
+    }
+</div>

@@ -1,0 +1,44 @@
+<section class="w-full p-6">
+
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="flex items-center justify-between">
+
+      <div>
+        <p class="text-sm font-medium text-(--color-fondo-boton)">
+          Resultados
+        </p>
+
+        <h1 class="mt-1 text-2xl font-bold tracking-tight text-gray-900">
+          Tareas encontradas
+        </h1>
+
+        <p class="mt-2 text-sm text-gray-500">
+          Consulta y gestiona las tareas que coinciden con tu búsqueda.
+        </p>
+      </div>
+
+      @if (tareaStore.tareasBuscadas().length > 0) {
+        <span class="rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700">
+            {{ tareaStore.tareasBuscadas().length }} resultados
+        </span>
+      }
+
+    </div>
+  </div>
+
+
+  <!-- Lista de tareas -->
+  <div class="flex flex-col gap-3">
+
+    @if (tareaStore.tareasBuscadas().length > 0) {
+        @for (tarea of tareaStore.tareasBuscadas(); track tarea.id) {
+            <app-item-tarea [dataTarea]="tarea" />
+        }
+    }@else {
+        <p>No se encontraron resultados.</p>
+    }
+    
+  </div>
+
+</section>
