@@ -1,6 +1,7 @@
 <header class="border-b border-(--color-border) bg-white/80 py-5 md:py-0 px-5 md:px-10">
     <div class="md:h-20 flex justify-between items-center">
         <h1 class="text-xl mb-1 md:mb-0 md:text-4xl font-medium text-(--color-texto-light)">
+            <!-- BOTON PARA MOVILE -->
             <button (click)="uiStore.alternarMenu()" class="inline md:hidden cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -12,16 +13,16 @@
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
 
                 <input
-                    #busqueda
+                    #busquedaM
                     type="text"
-                    (keydown.enter)="buscarTareas(busqueda)"
+                    (keydown.enter)="buscarTareas(busquedaM.value)"
                     placeholder="Buscar tareas..."
                     class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
                 />
 
             </div>
             <button 
-                (click)="buscarTareas(busqueda)"
+                (click)="buscarTareas(busquedaM.value)"
                 class="cursor-pointer bg-(--color-fondo-boton)/50 text-gray-900 shadow px-3 rounded-xl">
                 Buscar
             </button>
@@ -43,14 +44,14 @@
                 <input
                     #busqueda
                     type="text"
-                    (keydown.enter)="buscarTareas(busqueda)"
+                    (keydown.enter)="buscarTareas(busqueda.value)"
                     placeholder="Buscar tareas..."
                     class="w-full rounded-xl border border-gray-200 bg-gray-50 py-1 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
                 />
 
             </div>
             <button 
-                (click)="buscarTareas(busqueda)"
+                (click)="buscarTareas(busqueda.value)"
                 class="cursor-pointer bg-(--color-fondo-boton)/50 text-gray-900 shadow px-2 md:px-3 rounded-xl">
                 Buscar
             </button>
