@@ -14,7 +14,7 @@
     <div class="flex items-center gap-3 md:gap-5">
         <div class="flex items-center justify-center">
             <span
-            class="p-2 md:p-3 rounded-xl text-xl  md:text-2xl group-active:hidden" 
+            class="p-3 md:p-3 rounded-xl text-2xl  md:text-2xl group-active:hidden" 
             [ngClass]="{
                 'bg-red-100/50 text-red-700/50': dataTarea().estado == 'Cancelada',
                 'bg-blue-100/50 text-blue-700/50': dataTarea().estado == 'En Progreso',
@@ -25,7 +25,7 @@
                 
             </span>
             <span
-            class="p-2 md:p-3 rounded-xl text-xl md:text-2xl hidden group-active:block" 
+            class="p-3 md:p-3 rounded-xl text-2xl md:text-2xl hidden group-active:block" 
             [ngClass]="{
                 'bg-red-100/50 text-red-700': dataTarea().estado == 'Cancelada',
                 'bg-blue-100/50 text-blue-700': dataTarea().estado == 'En Progreso',
