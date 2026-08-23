@@ -61,8 +61,6 @@ export const TareaStore = signalStore(
             
             return state.tareas().filter((tarea: Tarea) => {
                 
-                console.log(tarea);
-
                 const esHoy = tarea.fecha.getFullYear() == hoy.getFullYear() &&
                     tarea.fecha.getMonth() == hoy.getMonth() &&
                     tarea.fecha.getDate() == hoy.getDate();

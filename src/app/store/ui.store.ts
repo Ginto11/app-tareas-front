@@ -8,7 +8,7 @@ export const UiStore  = signalStore(
     }),
     withComputed((state) => ({
         obtenerValor: computed(() => {
-            return state.menuAbierto();
+            return !state.menuAbierto();
         })
     })),
     withMethods((store) => ({

@@ -1,16 +1,16 @@
-<section class="w-full p-6">
+<section class="w-full md:p-6">
 
   <!-- Header -->
   <div class="mb-8">
     <div class="flex items-center justify-between">
 
       <div>
-        <p class="text-sm font-medium text-(--color-fondo-boton)">
+        <div class="text-sm font-medium text-(--color-fondo-boton)">
           Resultados
-        </p>
+        </div>
 
         <h1 class="mt-1 text-2xl font-bold tracking-tight text-gray-900">
-          Tareas encontradas
+          Tareas encontradas ({{ tareaStore.tareasBuscadas().length }})
         </h1>
 
         <p class="mt-2 text-sm text-gray-500">
@@ -19,7 +19,7 @@
       </div>
 
       @if (tareaStore.tareasBuscadas().length > 0) {
-        <span class="rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700">
+        <span class="hidden md:hidden rounded-full bg-gray-100 md:px-4 py-2 text-sm font-semibold text-gray-700">
             {{ tareaStore.tareasBuscadas().length }} resultados
         </span>
       }
