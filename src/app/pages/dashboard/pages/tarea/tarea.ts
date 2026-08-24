@@ -27,7 +27,8 @@ export default class Tarea implements OnInit {
     Swal.fire({
       icon: 'question',
       showCancelButton: true,
-      confirmButtonText: 'Actualizar Estado',
+      title: 'Actualización de estado',
+      confirmButtonText: 'Actualizar',
       cancelButtonText: 'Cancelar',
       html: `
       <form id="formTarea" class="mt-4 text-left">

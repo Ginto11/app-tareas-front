@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { UiStore } from '../../../../../store/ui.store';
 
 @Component({
   selector: 'app-header-menu',
@@ -8,7 +7,5 @@ import { UiStore } from '../../../../../store/ui.store';
   styles: ``,
 })
 export class HeaderMenu {
-
-  public uiStore = inject(UiStore);
 
 }

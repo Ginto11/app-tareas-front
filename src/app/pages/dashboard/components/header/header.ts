@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TareaStore } from '../../../../store/tarea.store';
 import Swal from 'sweetalert2';
 import { UiStore } from '../../../../store/ui.store';
+import { EstadoMenuService } from '../../../../services/estado-menu.service';
 
 @Component({
   selector: 'app-header',
@@ -10,18 +11,17 @@ import { UiStore } from '../../../../store/ui.store';
   templateUrl: './header.html',
   styles: ``,
 })
-export class Header implements OnDestroy {
+export class Header  {
   
+  public estadoMenuService = inject(EstadoMenuService);
   private tareaStore = inject(TareaStore);
   private router = inject(Router);
   public uiStore = inject(UiStore);
 
-
-   @ViewChild('busquedaM') busquedaM!: ElementRef<HTMLInputElement>;
-   @ViewChild('busqueda') busqueda!: ElementRef<HTMLInputElement>;
-  
-  buscarTareas(valor: string):void {
+  buscarTareas(input: HTMLInputElement):void {
     
+    const valor = input.value;
+
     if(valor == ''){
       Swal.fire({
         icon: 'warning',
@@ -30,12 +30,9 @@ export class Header implements OnDestroy {
       return;
     }
     this.tareaStore.buscarTareasPorNombre(valor);
+    input.value = '';
     this.router.navigate(['/dashboard/buscador'], { queryParams: { nombre: valor } })
   }
   
-  ngOnDestroy(): void {
-    this.busquedaM.nativeElement.value = '';
-    this.busqueda.nativeElement.value = '';
-  }
 
 }

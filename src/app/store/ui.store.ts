@@ -4,21 +4,22 @@ import { patchState, signalStore, withComputed, withMethods, withState } from "@
 export const UiStore  = signalStore(
     { providedIn: 'root' },
     withState({
-        menuAbierto: false
+        menuOculto: false
     }),
     withComputed((state) => ({
         obtenerValor: computed(() => {
-            return !state.menuAbierto();
+            console.log('Obteniendo:', state.menuOculto())
+            return !state.menuOculto();
         })
     })),
     withMethods((store) => ({
        alternarMenu: () => {
             patchState(store, {
-                menuAbierto: !store.menuAbierto()
+                menuOculto: !store.menuOculto()
             })
        },
        cerrarMenu: () => {
-        patchState(store, { menuAbierto: false })
+        patchState(store, { menuOculto: false })
        }
     }))
 )

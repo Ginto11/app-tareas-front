@@ -1,8 +1,8 @@
 <header class="border-b border-(--color-border) bg-white/80 py-5 md:py-0 px-5 md:px-10">
     <div class="md:h-20 flex justify-between items-center">
-        <h1 class="text-xl mb-1 md:mb-0 md:text-4xl font-medium text-(--color-texto-light)">
+        <h1 class="text-xl mb-1 md:mb-0 lg:text-4xl font-medium text-(--color-texto-light)">
             <!-- BOTON PARA MOVILE -->
-            <button (click)="uiStore.alternarMenu()" class="inline md:hidden cursor-pointer">
+            <button (click)="estadoMenuService.intercambiarValor()" class="inline lg:hidden cursor-pointer">
                 <i class="fa-solid fa-bars"></i>
             </button>
             ¡Hola, Nelson!
@@ -15,14 +15,14 @@
                 <input
                     #busquedaM
                     type="text"
-                    (keydown.enter)="buscarTareas(busquedaM.value)"
+                    (keydown.enter)="buscarTareas(busquedaM)"
                     placeholder="Buscar tareas..."
                     class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
                 />
 
             </div>
             <button 
-                (click)="buscarTareas(busquedaM.value)"
+                (click)="buscarTareas(busquedaM)"
                 class="cursor-pointer bg-(--color-fondo-boton)/50 text-gray-900 shadow px-3 rounded-xl">
                 Buscar
             </button>
@@ -44,14 +44,14 @@
                 <input
                     #busqueda
                     type="text"
-                    (keydown.enter)="buscarTareas(busqueda.value)"
+                    (keydown.enter)="buscarTareas(busqueda)"
                     placeholder="Buscar tareas..."
                     class="w-full rounded-xl border border-gray-200 bg-gray-50 py-1 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
                 />
 
             </div>
             <button 
-                (click)="buscarTareas(busqueda.value)"
+                (click)="buscarTareas(busqueda)"
                 class="cursor-pointer bg-(--color-fondo-boton)/50 text-gray-900 shadow px-2 md:px-3 rounded-xl">
                 Buscar
             </button>
