@@ -1,30 +1,19 @@
 <main class="h-screen grid grid-cols-1 lg:grid-cols-[25%_75%] overflow-hidden">
 
+    <!-- Menu para la web  -->
+    <app-menu-web class="hidden lg:block" />
 
-    <app-menu class="hidden lg:block" />
-
+    <!-- Menu para mobile -->
     <app-menu-mobile 
         [class.translate-x-0]="estadoMenuService.estado()"
         [class.-translate-x-full]="!estadoMenuService.estado()"
-        class="
-            fixed
-            left-0
-            top-0
-            z-50
-            h-dvh
-            w-full
-            bg-white
-            shadow-xl
-            transition-transform
-            duration-300
-            ease-in-out
-        "
+        class="fixed left-0 top-0 z-50 h-dvh w-72 bg-black shadow-xl transition-transform duration-300 ease-in-out"
     />
 
+    <!-- Seccion donde se renderizan las pages -->
     <section class="h-screen flex flex-col bg-(--color-fondo-light) overflow-auto">
-        <app-header class="sticky top-0" />
-        <div class="p-6">
-            <router-outlet />
-        </div>
+        <!-- Header de las pages internas -->
+        <app-header-dashboard class="sticky top-0" />
+        <router-outlet />
     </section>
 </main>

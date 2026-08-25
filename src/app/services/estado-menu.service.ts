@@ -20,11 +20,4 @@ export class EstadoMenuService {
     }))
   }
 
-  cerrarMenu():void {
-    this.menuAbierto.update((state) => ({
-      ...state,
-      estado: false
-    }))
-  }
-
 }
