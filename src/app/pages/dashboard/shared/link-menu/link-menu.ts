@@ -1,8 +1,9 @@
 import { NgClass } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Link } from '../../../../interfaces/link.interface';
 import { CommonModule } from '@angular/common';
+import { TareaStore } from '../../../../store/tarea.store';
 
 @Component({
   selector: 'app-link-menu',
@@ -18,10 +19,12 @@ import { CommonModule } from '@angular/common';
           <i [ngClass]="dataLink().icono"></i>
           {{ dataLink().texto }}
       </div>
-      @if (dataLink().cantidadTareas) {
-        <span class="text-sm bg-(--color-fondo-link-menu) text-gray-100 h-auto w-auto px-2 flex justify-center items-center rounded">
-            {{ dataLink().cantidadTareas }}
-        </span>
+      @if(dataLink().texto == 'Papelera'){
+        @if (tareaStore.papeleraTareas().length) {
+          <span class="text-sm bg-(--color-fondo-link-menu) text-gray-100 h-auto w-auto px-2 flex justify-center items-center rounded">
+              {{ tareaStore.papeleraTareas().length }}
+          </span>
+        }
       }
     </a>
   `,
@@ -29,4 +32,5 @@ import { CommonModule } from '@angular/common';
 })
 export class LinkMenu {
   public dataLink = input.required<Link>();
+  public tareaStore = inject(TareaStore);
 }

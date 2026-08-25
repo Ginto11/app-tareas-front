@@ -10,13 +10,15 @@ interface TareaState {
     param: string,
     query: string;
     id: string;
+    filtroPor: string;
 }
 
 const initialState: TareaState = {
     tareas: [],
     param: '',
     query: '',
-    id: ''
+    id: '',
+    filtroPor: ''
 }
 
 export const TareaStore = signalStore(
@@ -25,16 +27,31 @@ export const TareaStore = signalStore(
     withComputed((state) => ({
         tareasSeleccionadas: computed(() => {
             const param = state.param();
-            const tareas = state.tareas();
+            const tareas = state.tareas().filter((tarea: Tarea) => tarea.estado !== 'Cancelada');
+            const filtroPor = state.filtroPor();
 
             if(param == ''){
                 return tareas;
+            }
+
+            if(filtroPor === 'prioridad'){
+                return tareas.filter(tarea => {
+                    return tarea.prioridad.toLowerCase() == param
+                })
+
             }
 
             return tareas.filter(tarea => {
                 return tarea.estado.toLowerCase() == param
             })
 
+
+        }),
+        tareasPorCategoria: computed(() => {
+            const query = state.query();
+            const tareas = state.tareas();
+
+            return tareas.filter((tarea: Tarea) => tarea.categoria.toLowerCase() == query.toLowerCase() && tarea.estado != 'Cancelada')
         }),
         cantidadTareasPendientes: computed(() => {
             return state.tareas().filter(tarea => tarea.estado == 'Pendiente').length
@@ -76,7 +93,8 @@ export const TareaStore = signalStore(
         }),
         cantidadTareasEnProgreso: computed(() => {
             return state.tareas().filter((tarea: Tarea) => tarea.estado == 'En Progreso').length;
-        })
+        }),
+        papeleraTareas: computed(() => state.tareas().filter((tarea: Tarea) => tarea.estado == 'Cancelada'))
     })),
     withMethods((store, tareaService = inject(TareaService)) => ({
         cargarTareas: rxMethod<void>(
@@ -110,6 +128,17 @@ export const TareaStore = signalStore(
                 : tarea)
             }))
             
+        },
+        filtrarPor(texto: string):void {
+            patchState(store, { filtroPor: texto })
+        },
+        buscarPorCategoria(query: string) {
+            patchState(store, { query })
+        }
+    })),
+    withHooks((state) => ({
+        onInit():void {
+            state.cargarTareas();
         }
     }))
 )

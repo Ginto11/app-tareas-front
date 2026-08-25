@@ -52,7 +52,7 @@
           >
             <option selected value="">Selecciona una categoría</option>
             @for (categoria of categoriaStore.categorias(); track categoria.id) {
-              <option [value]="categoria.id">{{ categoria.titulo }}</option>
+              <option [value]="categoria.titulo | titlecase">{{ categoria.titulo }}</option>
             }
           </select>
           <span [hidden]="categoria.valid || categoria.pristine" class="text-sm text-red-400"
