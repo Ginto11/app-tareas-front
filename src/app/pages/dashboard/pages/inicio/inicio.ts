@@ -6,10 +6,11 @@ import { GridItemResumen } from './components/grid-item-resumen/grid-item-resume
 import { ContenedorLinks } from "./components/contenedor-links/contenedor-links";
 import { HeaderPage } from '../../shared/header-page/header-page';
 import { SeccionPage } from '../../shared/seccion-page/seccion-page';
+import { Filtro } from "./components/filtro/filtro";
 
 @Component({
   selector: 'app-inicio',
-  imports: [RouterOutlet, GridItemResumen, ContenedorLinks, HeaderPage, SeccionPage],
+  imports: [RouterOutlet, GridItemResumen, ContenedorLinks, HeaderPage, SeccionPage, Filtro],
   template: `
     <app-seccion-page>
 
@@ -27,7 +28,16 @@ import { SeccionPage } from '../../shared/seccion-page/seccion-page';
       />
       <div>
         <!-- Contenedor de links -->
-        <app-contenedor-links [links]="links" />
+        <div class="h-8 border-b-2 border-(--color-border) flex justify-between items-start">
+          @if (tareaStore.filtroPor() === 'prioridad') {
+            <app-contenedor-links [links]="linksParaPrioridad" />
+          } 
+          @else {
+            <app-contenedor-links [links]="linksParaEstados" />
+          }
+
+          <app-filtro />  
+        </div>
         <!-- Seccion donde se renderiza la lista -->
         <div>
           <router-outlet />
@@ -40,7 +50,34 @@ import { SeccionPage } from '../../shared/seccion-page/seccion-page';
 export default class Inicio {
   public tareaStore = inject(TareaStore);
 
-  links: Link[] = [
+  linksParaPrioridad: Link[] = [
+    {
+      id: 5,
+      texto: 'Todas',
+      ruta: '/dashboard/inicio/lista',
+      queryParams: {}
+    },
+    {
+      id: 6,
+      texto: 'Alta',
+      ruta: '/dashboard/inicio/lista',
+      queryParams: { prioridad: 'alta' },
+    },
+    {
+      id: 7,
+      texto: 'Media',
+      ruta: '/dashboard/inicio/lista',
+      queryParams: { prioridad: 'media' },
+    },
+    {
+      id: 8,
+      texto: 'Baja',
+      ruta: '/dashboard/inicio/lista',
+      queryParams: { prioridad: 'baja' },
+    },
+  ]
+
+  linksParaEstados: Link[] = [
     {
       id: 1,
       texto: 'Todas',

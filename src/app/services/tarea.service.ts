@@ -15,8 +15,8 @@ export class TareaService {
       fecha: new Date('2026-09-05'),
       prioridad: 'Alta',
       etiqueta: 'Deploy, Producción',
-      categoria: 'DevOps',
-      estado: 'Completada',
+      categoria: 'Trabajo',
+      estado: 'Cancelada',
       usuario: {
         iniciales: 'AP',
         nombre: 'Andrés',
@@ -32,7 +32,7 @@ export class TareaService {
       fecha: new Date('2026-09-07'),
       prioridad: 'Alta',
       etiqueta: 'UI, Diseño',
-      categoria: 'Frontend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'NM',
@@ -49,7 +49,7 @@ export class TareaService {
       fecha: new Date('2026-09-09'),
       prioridad: 'Alta',
       etiqueta: 'JWT, Seguridad',
-      categoria: 'Backend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'CR',
@@ -66,7 +66,7 @@ export class TareaService {
       fecha: new Date('2026-08-07'),
       prioridad: 'Alta',
       etiqueta: 'API, GET',
-      categoria: 'Backend',
+      categoria: 'Trabajo',
       estado: 'En Progreso',
       usuario: {
         iniciales: 'LM',
@@ -83,7 +83,7 @@ export class TareaService {
       fecha: new Date('2026-09-11'),
       prioridad: 'Alta',
       etiqueta: 'SQL, Database',
-      categoria: 'Backend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'JD',
@@ -100,7 +100,7 @@ export class TareaService {
       fecha: new Date('2026-09-12'),
       prioridad: 'Media',
       etiqueta: 'Filtros, UX',
-      categoria: 'Frontend',
+      categoria: 'Trabajo',
       estado: 'Pendiente',
       usuario: {
         iniciales: 'AP',
@@ -117,7 +117,7 @@ export class TareaService {
       fecha: new Date('2026-09-13'),
       prioridad: 'Alta',
       etiqueta: 'Bug, Forms',
-      categoria: 'Frontend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'MR',
@@ -134,7 +134,7 @@ export class TareaService {
       fecha: new Date('2026-09-15'),
       prioridad: 'Media',
       etiqueta: 'Charts, Dashboard',
-      categoria: 'Frontend',
+      categoria: 'Compartidas',
       estado: 'En Progreso',
       usuario: {
         iniciales: 'NM',
@@ -151,7 +151,7 @@ export class TareaService {
       fecha: new Date('2026-09-16'),
       prioridad: 'Alta',
       etiqueta: 'SQL, Performance',
-      categoria: 'Backend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'CR',
@@ -168,7 +168,7 @@ export class TareaService {
       fecha: new Date('2026-09-17'),
       prioridad: 'Baja',
       etiqueta: 'Dark Mode, UI',
-      categoria: 'Frontend',
+      categoria: 'Personal',
       estado: 'Pendiente',
       usuario: {
         iniciales: 'LM',
@@ -185,7 +185,7 @@ export class TareaService {
       fecha: new Date('2026-09-18'),
       prioridad: 'Alta',
       etiqueta: 'Errors, HTTP',
-      categoria: 'Backend',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'JD',
@@ -202,7 +202,7 @@ export class TareaService {
       fecha: new Date('2026-09-19'),
       prioridad: 'Media',
       etiqueta: 'Routing, Angular',
-      categoria: 'Frontend',
+      categoria: 'Compartidas',
       estado: 'En Progreso',
       usuario: {
         iniciales: 'MR',
@@ -219,7 +219,7 @@ export class TareaService {
       fecha: new Date('2026-09-20'),
       prioridad: 'Baja',
       etiqueta: 'Swagger, API',
-      categoria: 'Documentación',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'AP',
@@ -236,7 +236,7 @@ export class TareaService {
       fecha: new Date('2026-09-21'),
       prioridad: 'Alta',
       etiqueta: 'CRUD, Forms',
-      categoria: 'Frontend',
+      categoria: 'Compartidas',
       estado: 'En Progreso',
       usuario: {
         iniciales: 'NM',
@@ -253,7 +253,7 @@ export class TareaService {
       fecha: new Date('2026-09-22'),
       prioridad: 'Alta',
       etiqueta: 'Environment, Config',
-      categoria: 'DevOps',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'CR',
@@ -270,7 +270,7 @@ export class TareaService {
       fecha: new Date('2026-09-23'),
       prioridad: 'Media',
       etiqueta: 'UX, Dialog',
-      categoria: 'Frontend',
+      categoria: 'Personal',
       estado: 'Pendiente',
       usuario: {
         iniciales: 'LM',
@@ -287,7 +287,7 @@ export class TareaService {
       fecha: new Date('2026-09-24'),
       prioridad: 'Media',
       etiqueta: 'Testing, Unit Tests',
-      categoria: 'Testing',
+      categoria: 'Trabajo',
       estado: 'Completada',
       usuario: {
         iniciales: 'JD',
@@ -304,7 +304,7 @@ export class TareaService {
       fecha: new Date('2026-09-25'),
       prioridad: 'Alta',
       etiqueta: 'Roles, Seguridad',
-      categoria: 'Seguridad',
+      categoria: 'Compartidas',
       estado: 'En Progreso',
       usuario: {
         iniciales: 'MR',
@@ -321,7 +321,7 @@ export class TareaService {
       fecha: new Date('2026-09-26'),
       prioridad: 'Baja',
       etiqueta: 'NPM, Dependencies',
-      categoria: 'Mantenimiento',
+      categoria: 'Personal',
       estado: 'Cancelada',
       usuario: {
         iniciales: 'AP',
@@ -338,8 +338,8 @@ export class TareaService {
       fecha: new Date('2026-09-28'),
       prioridad: 'Alta',
       etiqueta: 'Review, QA',
-      categoria: 'Calidad',
-      estado: 'Completada',
+      categoria: 'Compartidas',
+      estado: 'Cancelada',
       usuario: {
         iniciales: 'NM',
         nombre: 'Nelson',

@@ -1,0 +1,21 @@
+<app-seccion-page>
+  <!-- Encabezado -->
+  <div class="flex items-center justify-between">
+    <app-header-page anteTitulo="Categoria" [titulo]="titulo() | titlecase" postTitulo="Aquí podras ver todas las tareas de acuerdo a la categoria seleccionada." />
+    <div
+      class="px-4 py-2 rounded-xl
+             bg-white border border-gray-200
+             text-sm text-gray-500"
+    >
+      {{ tareaStore.tareasPorCategoria().length }} tareas
+    </div>
+
+  </div>
+  <!-- Tareas -->
+  <div class="flex flex-col gap-3">
+
+    @for (tarea of tareaStore.tareasPorCategoria(); track tarea.id) {
+      <app-item-tarea [dataTarea]="tarea" />
+    }
+  </div>
+</app-seccion-page>

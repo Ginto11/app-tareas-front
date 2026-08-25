@@ -1,4 +1,4 @@
-import { patchState, signalStore, withComputed, withMethods, withState } from "@ngrx/signals";
+import { patchState, signalStore, withComputed, withHooks, withMethods, withState } from "@ngrx/signals";
 import { Categoria } from "../interfaces/categoria.interface";
 import { computed, inject } from "@angular/core";
 import { CategoriaService } from "../services/categoria.service";
@@ -24,7 +24,7 @@ export const CategoriaStore = signalStore(
             return categorias.map((categoria: Categoria) => {
                 const link: Link = {
                     id: Math.round(Math.random() * 1000),
-                    ruta: '/dashboard/categoria',
+                    ruta: categoria.ruta,
                     icono: categoria.icono,
                     texto: categoria.titulo,
                     cantidadTareas: 0,
@@ -52,6 +52,11 @@ export const CategoriaStore = signalStore(
             patchState(store, (state) => ({
                 categorias: [categoria, ...state.categorias]
             }))
+        }
+    })),
+    withHooks((state) => ({
+        onInit():void{
+            state.cargarCategorias()
         }
     }))
 )

@@ -46,6 +46,14 @@ export const routes: Routes = [
                 loadComponent: () => import('./pages/dashboard/pages/buscador/buscador')
             },
             {
+                path: 'papelera',
+                loadComponent: () => import('./pages/dashboard/pages/papelera/papelera')
+            },
+            {
+                path: 'ver-categoria',
+                loadComponent: () => import('./pages/dashboard/pages/ver-categoria/ver-categoria')
+            },
+            {
                 path: '**',
                 redirectTo: 'inicio',
                 pathMatch: 'full'

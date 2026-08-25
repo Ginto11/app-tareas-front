@@ -5,10 +5,11 @@ import { CategoriaStore } from '../../../../../store/categoria.store';
 import { TareaStore } from '../../../../../store/tarea.store';
 import Swal from 'sweetalert2';
 import {Tarea } from '../../../../../interfaces/tarea-interface'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-nueva-tarea',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './form-nueva-tarea.html',
   styles: ``,
 })

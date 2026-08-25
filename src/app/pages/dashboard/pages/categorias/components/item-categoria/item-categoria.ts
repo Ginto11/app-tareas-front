@@ -1,7 +1,6 @@
 import { Component, input } from '@angular/core';
 import { Categoria } from '../../../../../../interfaces/categoria.interface';
 import { CommonModule } from '@angular/common';
-import Swal from 'sweetalert2';
 import { RouterLink } from "@angular/router";
 
 @Component({

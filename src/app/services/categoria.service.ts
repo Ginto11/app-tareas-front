@@ -16,7 +16,7 @@ export class CategoriaService {
       cantidadTotalCompletadas: 3,
       cantidadTotalPendientes: 4,
       cantidadTotalTareas: 14,
-      ruta: '/dashboard/categoria',
+      ruta: '/dashboard/ver-categoria',
       queryParam: { nombre: 'personal' }
     },
     {
@@ -27,7 +27,7 @@ export class CategoriaService {
       cantidadTotalCompletadas: 3,
       cantidadTotalPendientes: 2,
       cantidadTotalTareas: 8,
-      ruta: '/dashboard/categoria',
+      ruta: '/dashboard/ver-categoria',
       queryParam: { nombre: 'trabajo' }
     },
     {
@@ -38,7 +38,7 @@ export class CategoriaService {
       cantidadTotalCompletadas: 8,
       cantidadTotalPendientes: 4,
       cantidadTotalTareas: 19,
-      ruta: '/dashboard/categoria',
+      ruta: '/dashboard/ver-categoria',
       queryParam: { nombre: 'compartidas' }
     }
   ]
