@@ -25,7 +25,7 @@ export const routes: Routes = [
                     },
                     {
                         path: 'lista',
-                        loadComponent: () => import('./pages/dashboard/pages/inicio/lista-tareas/lista-tareas')
+                        loadComponent: () => import('./pages/dashboard/pages/inicio/components/lista-tareas/lista-tareas')
                     }
                 ]
             },

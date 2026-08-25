@@ -1,76 +1,40 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, computed, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TareaStore } from '../../../../store/tarea.store';
-import { CommonModule } from '@angular/common';
-import Swal from 'sweetalert2';
+import { EncabezadoTarea } from './components/encabezado-tarea/encabezado-tarea';
+import { DetalleTarea } from "./components/detalle-tarea/detalle-tarea";
+import { SeccionPage } from '../../shared/seccion-page/seccion-page';
 
 @Component({
   selector: 'app-tarea',
-  imports: [CommonModule, RouterLink],
-  templateUrl: './tarea.html',
+  imports: [EncabezadoTarea, DetalleTarea, SeccionPage],
+  template: `
+    <app-seccion-page>
+      <!-- Header -->
+      <app-encabezado-tarea [tarea]="tarea()" />
+
+      <!-- Detalle tarea -->
+      <app-detalle-tarea [tarea]="tarea()" />
+    </app-seccion-page>
+  `,
   styles: ``,
 })
 export default class Tarea implements OnInit {
 
+  private router = inject(Router);
   private route = inject(ActivatedRoute);
   public tareaStore = inject(TareaStore);
 
+  public tarea = computed(() => this.tareaStore.tareaBuscadaPorId()!);
+
   ngOnInit(): void {
-    
     const id = this.route.snapshot.params['id'];
+
+    if(!id){
+      this.router.navigate(['/dashboard/inicio']);
+      return;
+    }
+
     this.tareaStore.buscarTareaPorId(id);
-
   }
-
-
-  mostrarModalCambiarEstado(id: string):void {
-    Swal.fire({
-      icon: 'question',
-      showCancelButton: true,
-      title: 'Actualización de estado',
-      confirmButtonText: 'Actualizar',
-      cancelButtonText: 'Cancelar',
-      html: `
-      <form id="formTarea" class="mt-4 text-left">
-
-        <label
-          for="estado"
-          class="mb-2 block text-sm font-medium text-gray-700"
-        >
-          ¿A que estado desea actualizar la tarea?
-        </label>
-
-        <select
-          id="estado"
-          name="estado"
-          class="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
-        >
-        <option selected>Seleccionar estado</option>  
-        <option value="En Progreso">En Progreso</option>  
-        <option value="Completada"> Completada </option>  
-        <option value="Cancelada"> Cancelada </option>  
-        </select>
-
-      </form>
-      `,
-      preConfirm: () =>{
-        const input = document.getElementById('estado') as HTMLSelectElement;
-
-        const valor = input.value;
-
-        return valor;
-      }
-    }).then(result => {
-      if(result.isConfirmed){
-        this.tareaStore.actualizarEstado(id, result.value);
-        Swal.fire({
-          icon: 'success',
-          text: 'Estado actualizado exitosamente.'
-        })
-      }
-    })
-    
-  }
-
-
 }
