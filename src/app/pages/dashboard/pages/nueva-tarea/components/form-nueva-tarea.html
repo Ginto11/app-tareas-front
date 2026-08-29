@@ -1,15 +1,15 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-3">
     <!-- Información principal -->
-    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div class="bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark) rounded-2xl border border-(--color-border-light) dark:border-(--color-border-dark) p-6 shadow-sm">
       <div class="mb-6">
-        <h2 class="text-base font-semibold text-gray-900">Información de la tarea</h2>
+        <h2 class="text-base font-semibold text-(--color-texto-light) dark:text-(--color-texto-dark)">Información de la tarea</h2>
 
-        <p class="mt-1 text-sm text-gray-500">Define los datos principales de la tarea.</p>
+        <p class="mt-1 text-sm text-(--color-texto-light) dark:text-(--color-texto-tertiary-dark)">Define los datos principales de la tarea.</p>
       </div>
 
       <!-- Título -->
       <div class="mb-5">
-        <label for="titulo" class="mb-2 block text-sm font-medium text-gray-700"> Título </label>
+        <label for="titulo" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)"> Título </label>
 
         <input
           formControlName="titulo"
@@ -24,7 +24,7 @@
       </div>
 
       <div class="mb-5">
-        <label for="descripcion" class="mb-2 block text-sm font-medium text-gray-700">
+        <label for="descripcion" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)">
           Descripción (Opcional)
         </label>
 
@@ -41,7 +41,7 @@
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         <!-- Categoría -->
         <div>
-          <label for="categoria" class="mb-2 block text-sm font-medium text-gray-700">
+          <label for="categoria" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)">
             Categoría
           </label>
 
@@ -62,7 +62,7 @@
 
         <!-- Prioridad -->
         <div>
-          <label for="prioridad" class="mb-2 block text-sm font-medium text-gray-700">
+          <label for="prioridad" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)">
             Prioridad
           </label>
 
@@ -84,17 +84,17 @@
     </div>
 
     <!-- Planificación -->
-    <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div class="rounded-2xl border border-(--color-border-light) dark:border-(--color-border-dark) p-6 shadow-sm bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark)">
       <div class="mb-6">
-        <h2 class="text-base font-semibold text-gray-900">Planificación</h2>
+        <h2 class="text-base font-semibold text-(--color-texto-light) dark:text-(--color-texto-dark)">Planificación</h2>
 
-        <p class="mt-1 text-sm text-gray-500">Define cuándo debe realizarse la tarea.</p>
+        <p class="mt-1 text-sm text-(--color-texto-light) dark:text-(--color-texto-tertiary-dark)">Define cuándo debe realizarse la tarea.</p>
       </div>
 
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         <!-- Fecha -->
         <div>
-          <label for="fecha" class="mb-2 block text-sm font-medium text-gray-700"> Fecha </label>
+          <label for="fecha" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)"> Fecha </label>
 
           <input
             formControlName="fecha"
@@ -109,7 +109,7 @@
 
         <!-- Etiquetas -->
         <div>
-          <label for="etiqueta" class="mb-2 block text-sm font-medium text-gray-700">
+          <label for="etiqueta" class="mb-2 block text-sm font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)">
             Etiquetas
           </label>
 
@@ -168,8 +168,9 @@
       </a>
 
       <button
+        [disabled]="form.invalid"
         type="submit"
-        class="cursor-pointer rounded-lg bg-(--color-fondo-boton) px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-(--color-fondo-boton)/30"
+        class="cursor-pointer disabled:bg-(--color-primary-light)/50 disabled:cursor-default rounded-lg bg-(--color-primary-light) px-5 py-2.5 text-sm font-semibold text-(--color-texto-dark) shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-(--color-primary-light)/30"
       >
         Crear tarea
       </button>

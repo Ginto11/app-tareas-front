@@ -10,9 +10,9 @@ import { Tarea } from '../../../../../../../../../../interfaces/tarea-interface'
       class="p-3 md:p-3 rounded-xl text-2xl  md:text-2xl group-active:hidden"
       [ngClass]="{
         'bg-gray-100/50 text-gray-700/50': tarea().estado == 'Cancelada',
-        'bg-blue-100/50 text-blue-700/50': tarea().estado == 'En Progreso',
-        'bg-yellow-100/50 text-yellow-700/50': tarea().estado == 'Pendiente',
-        'bg-green-100/50 text-green-700/50': tarea().estado == 'Completada',
+        'bg-(--color-info-bg-light) text-(--color-info-light) dark:bg-(--color-info-bg-dark)/25 dark:text-(--color-info-dark)': tarea().estado == 'En Progreso',
+        'bg-(--color-warning-bg-light) text-(--color-warning-light) dark:bg-(--color-warning-bg-dark)/25 dark:text-(--color-warning-dark)': tarea().estado == 'Pendiente',
+        'bg-(--color-success-bg-light) text-(--color-success-light) dark:bg-(--color-success-bg-dark)/25 dark:text-(--color-success-dark)': tarea().estado == 'Completada',
       }"
     >
       <i class="fa-solid fa-folder"></i>

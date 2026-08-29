@@ -28,7 +28,7 @@ import { Filtro } from "./components/filtro/filtro";
       />
       <div>
         <!-- Contenedor de links -->
-        <div class="h-8 border-b-2 border-(--color-border) flex justify-between items-start">
+        <div class="h-8 border-b-2 border-(--color-primary-light) dark:border-(--color-primary-dark) flex justify-between items-start">
           @if (tareaStore.filtroPor() === 'prioridad') {
             <app-contenedor-links [links]="linksParaPrioridad" />
           } 

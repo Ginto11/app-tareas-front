@@ -1,41 +1,41 @@
 <a
   [routerLink]="categoria().ruta"
   [queryParams]="categoria().queryParam"
-  class="block rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md"
+  class="block rounded-2xl border border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark) p-5 shadow-sm transition hover:shadow-md"
 >
   <div class="mb-5 flex items-start justify-between">
     <div>
       <div class="mb-2 flex items-center gap-2">
-        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-(--color-fondo-tertiary-light) dark:bg-(--color-fondo-dark) text-blue-600">
           <i [ngClass]="categoria().icono"></i>
         </div>
 
-        <h2 class="text-lg font-semibold text-gray-900"> {{ categoria().titulo }} </h2>
+        <h2 class="text-lg font-semibold text-(--color-texto-light) dark:text-(--color-texto-dark)"> {{ categoria().titulo }} </h2>
       </div>
 
-      <p class="text-sm text-gray-500"> {{ categoria().cantidadTotalTareas }}  tareas en total</p>
+      <p class="text-sm text-(--color-texto-light) dark:text-(--color-texto-secondary-dark)"> {{ categoria().cantidadTotalTareas }}  tareas en total</p>
     </div>
     
   </div>
 
   <div class="grid grid-cols-2 gap-2">
-    <div class="rounded-xl bg-gray-50 p-3">
-      <p class="text-xs text-gray-500">Total</p>
-      <p class="mt-1 text-xl font-bold text-gray-900"> {{ categoria().cantidadTotalTareas }} </p>
+    <div class="rounded-xl bg-(--color-info-bg-light) dark:bg-(--color-info-bg-dark)/50 text-(--color-info-light) dark:text-(--color-info-light) p-3">
+      <p class="text-xs">Total</p>
+      <p class="mt-1 text-xl font-bold"> {{ categoria().cantidadTotalTareas }} </p>
     </div>
 
-    <div class="rounded-xl bg-green-50 p-3">
-      <p class="text-xs text-green-600">Completadas</p>
-      <p class="mt-1 text-xl font-bold text-green-700"> {{ categoria().cantidadTotalCompletadas }} </p>
+    <div class="rounded-xl bg-(--color-success-bg-light) dark:bg-(--color-success-bg-dark)/50 text-(--color-success-light) dark:text-(--color-success-light) p-3">
+      <p class="text-xs">Completadas</p>
+      <p class="mt-1 text-xl font-bold"> {{ categoria().cantidadTotalCompletadas }} </p>
     </div>
 
-    <div class="rounded-xl bg-amber-50 p-3">
-      <p class="text-xs text-amber-600">Pendientes</p>
-      <p class="mt-1 text-xl font-bold text-amber-700"> {{ categoria().cantidadTotalPendientes  }} </p>
+    <div class="rounded-xl bg-(--color-warning-bg-light) dark:bg-(--color-warning-bg-dark)/50 text-(--color-warning-light) dark:text-(--color-warning-light) p-3">
+      <p class="text-xs">Pendientes</p>
+      <p class="mt-1 text-xl font-bold"> {{ categoria().cantidadTotalPendientes  }} </p>
     </div>
-    <div class="rounded-xl bg-red-50 p-3">
-      <p class="text-xs font-medium text-red-600">Canceladas</p>
-      <p class="text-sm font-bold text-red-700"> {{ categoria().cantidadTotalCanceladas  }} </p>
+    <div class="rounded-xl bg-(--color-danger-bg-light) dark:bg-(--color-danger-bg-dark)/50 text-(--color-danger-light) dark:text-(--color-danger-light) p-3">
+      <p class="text-xs font-medium">Canceladas</p>
+      <p class="text-sm font-bold"> {{ categoria().cantidadTotalCanceladas  }} </p>
     </div>
   </div>
 

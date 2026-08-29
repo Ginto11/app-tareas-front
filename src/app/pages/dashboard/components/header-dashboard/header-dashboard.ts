@@ -3,10 +3,11 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TareaStore } from '../../../../store/tarea.store';
 import Swal from 'sweetalert2';
 import { EstadoMenuService } from '../../../../services/estado-menu.service';
+import { BtnTheme } from "../../../../shared/btn-theme/btn-theme";
 
 @Component({
   selector: 'app-header-dashboard',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, BtnTheme],
   templateUrl: './header-dashboard.html',
   styles: ``,
 })

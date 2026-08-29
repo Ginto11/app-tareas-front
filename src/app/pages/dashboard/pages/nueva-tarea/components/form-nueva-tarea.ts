@@ -52,6 +52,7 @@ export class FormNuevaTarea implements OnInit {
   }
 
   onSubmit(): void {
+    console.log('Hola')
     const [year, month, day] = this.form.value['fecha'].split('-').map(Number);
 
     const fechaDate = new Date(year, month - 1, day);

@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Tarea } from '../../../../../../../../interfaces/tarea-interface';
+import { TareaStore } from '../../../../../../../../store/tarea.store';
 
 @Component({
   selector: 'app-botones-papelera',
@@ -8,6 +9,8 @@ import { Tarea } from '../../../../../../../../interfaces/tarea-interface';
     <div class="flex items-center gap-2 ml-4">
       <!-- Restaurar -->
       <button
+        type="button"
+        (click)="tareaStore.restaurarTareaPorId(tarea().id)"
         title="Restaurar tarea"
         class="w-10 h-10 rounded-full
                  flex items-center justify-center cursor-pointer
@@ -37,4 +40,5 @@ import { Tarea } from '../../../../../../../../interfaces/tarea-interface';
 })
 export class BotonesPapelera {
   tarea = input.required<Tarea>();
+  tareaStore = inject(TareaStore);
 }

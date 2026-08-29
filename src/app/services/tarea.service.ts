@@ -1,12 +1,13 @@
 import { Injectable, signal } from '@angular/core';
 import { Tarea } from '../interfaces/tarea-interface';
 import { Observable, of } from 'rxjs';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TareaService {
-  tareas: Tarea[] = [
+  tareas = signal<Tarea[]>([
     {
       id: '1',
       titulo: 'Preparar despliegue de la aplicación',
@@ -347,9 +348,31 @@ export class TareaService {
       fechaCreacion: new Date('2026-09-19'),
       fechaFinalizacion: new Date('2026-09-28'),
     },
-  ];
+  ]);
 
   public obtenerTareas(): Observable<Tarea[]> {
-    return of(this.tareas);
+    return of(this.tareas());
+  }
+
+  public restaurarTarea(id: string):Observable<Tarea | undefined>{
+
+    this.tareas.update(tareas =>
+      tareas.map(tarea =>
+        tarea.id === id
+          ? { ...tarea, estado: 'Pendiente' }
+          : tarea
+      )
+    )
+
+    const tarea = this.tareas().find((tarea: Tarea) => tarea.id == id);
+
+    if(!tarea){
+      return of(undefined);
+    }
+
+    return of({
+      ...tarea,
+      estado: 'Pendiente'
+    })
   }
 }
