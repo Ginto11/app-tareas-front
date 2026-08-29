@@ -9,15 +9,15 @@ import { NgClass } from '@angular/common';
     <div class="hidden md:flex gap-4">
       <span
         [ngClass]="{
-          'bg-red-400/50': tarea().prioridad == 'Alta',
-          'bg-yellow-400/50': tarea().prioridad == 'Media',
-          'bg-blue-400/50': tarea().prioridad == 'Baja',
+          'text-(--color-danger-light) dark:text-(--color-danger-dark)': tarea().prioridad == 'Alta',
+          'text-(--color-warning-light) dark:text-(--color-warning-dark)': tarea().prioridad == 'Media',
+          'text-(--color-info-light) dark:text-(--color-info-dark)': tarea().prioridad == 'Baja',
         }"
-        class="border border-(--color-border) py-1 px-2 rounded-xl"
+        class="py-1 px-2 rounded-xl font-medium"
       >
         {{ tarea().prioridad }}
       </span>
-      <span class="border border-(--color-border) shadow py-1 px-2 rounded-xl">
+      <span class="bg-(--color-accent-soft-light) text-(--color-accent-light) dark:bg-(--color-accent-soft-dark)/50 dark:text-(--color-accent-dark) border border-(--color-border-light) dark:border-(--color-border-dark) shadow py-1 px-2 rounded-xl">
         {{ tarea().categoria }}
       </span>
     </div>

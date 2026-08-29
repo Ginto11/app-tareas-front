@@ -10,8 +10,8 @@ import { Link } from '../../../../../../interfaces/link.interface';
       [routerLink]="datalink().ruta"
       [queryParams]="datalink().queryParams"
       [routerLinkActiveOptions]="{ exact: true }"
-      routerLinkActive="!text-(--color-fondo-boton) font-medium"
-      class="text-gray-500  border-(--color-border) text-center text-sm px-1  md:px-3 items-center"
+      routerLinkActive="!text-(--color-primary-light) font-medium"
+      class="text-(--color-texto-secondary-light) dark:text-(--color-texto-secondary-dark) text-center text-sm px-1  md:px-3 items-center"
     >
       {{ datalink().texto }}
     </a>

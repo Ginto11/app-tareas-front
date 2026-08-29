@@ -7,10 +7,10 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="flex flex-col gap-2">
-      <h2 class="runcate text-sm md:text-base font-medium tracking-tight">
+      <h2 class="text-(--color-texto-light) dark:text-(--color-texto-dark) runcate text-sm md:text-base font-medium tracking-tight">
         {{ tarea().titulo }}
       </h2>
-      <p class="flex gap-1 md:gap-3 text-gray-500 text-xs">
+      <p class="flex gap-1 md:gap-3 text-(--color-texto-muted-light) dark:text-(--color-texto-muted-dark) text-xs">
         <span>
           <i class="fa-regular fa-calendar"></i> {{ tarea().fecha | date: 'dd MMM hh:ss a' }}
         </span>

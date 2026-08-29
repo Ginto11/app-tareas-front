@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { TareaStore } from '../store/tarea.store';
 import { CategoriaStore } from '../store/categoria.store';
 import { Categoria } from '../interfaces/categoria.interface';
+import { from, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -61,8 +62,8 @@ export class ModalService {
   }
 
   /* MODALES DE CATEGORIAS */
-  mostrarModalNuevaCategoria = (): void => {
-    Swal.fire({
+  mostrarModalNuevaCategoria = (): Observable<Categoria> => {
+    return from(Swal.fire({
       title: 'Nueva categoría',
       html: `
       <form id="formCategoria" class="mt-4 text-left">
@@ -100,29 +101,30 @@ export class ModalService {
           return false;
         }
 
-        return nombre;
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const nombreCategoria = result.value;
-
-        const categoria: Categoria = {
+        return {
           id: crypto.randomUUID(),
           icono: 'fa-solid fa-layer-group',
           ruta: '/dashboard/categoria',
-          titulo: nombreCategoria,
+          titulo: nombre,
           cantidadTotalTareas: 0,
           cantidadTotalCompletadas: 0,
           cantidadTotalPendientes: 0,
           cantidadTotalCanceladas: 0,
-          queryParam: { nombre: nombreCategoria.toLowerCase() },
-        };
-
-        this.categoriaStore.agregarCategoria(categoria);
-
-        // Aquí llamas a tu store
-        // this.tareaStore.agregarCategoria(nombreCategoria);
-      }
-    });
+          queryParam: { nombre: nombre.toLowerCase() },
+        } as Categoria;
+      },
+    })).pipe(
+      map((result) =>
+      result.isConfirmed
+      ? result.value
+      : null)
+    );
   };
+
+  mostrarModalMensajeExitoso(mensaje: string):void {
+    Swal.fire({
+      icon: 'success',
+      text: mensaje
+    })
+  }
 }

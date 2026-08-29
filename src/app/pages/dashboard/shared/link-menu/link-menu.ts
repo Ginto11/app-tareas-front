@@ -11,9 +11,9 @@ import { TareaStore } from '../../../../store/tarea.store';
   template: `
     <a 
       [routerLink]="dataLink().ruta" 
-      routerLinkActive="bg-(--color-fondo-link-menu) border-white"
+      routerLinkActive="bg-(--color-fondo-secondary-dark) !border-(--color-primary-dark)"
       [queryParams]="dataLink().queryParams"
-      class="w-full flex justify-between items-center rounded-l-xl py-2 px-3 border-r-3 border-transparent hover:bg-(--color-fondo-link-menu)">
+      class="w-full text-(--color-texto-dark) flex justify-between items-center rounded-l-xl py-2 px-3 border-r-3 border-transparent hover:bg-(--color-fondo-secondary-dark) ">
       
       <div>
           <i [ngClass]="dataLink().icono"></i>
@@ -21,7 +21,7 @@ import { TareaStore } from '../../../../store/tarea.store';
       </div>
       @if(dataLink().texto == 'Papelera'){
         @if (tareaStore.papeleraTareas().length) {
-          <span class="text-sm bg-(--color-fondo-link-menu) text-gray-100 h-auto w-auto px-2 flex justify-center items-center rounded">
+          <span class="text-sm bg-(--color-primary-dark) text-gray-100 h-auto w-auto px-2 flex justify-center items-center rounded">
               {{ tareaStore.papeleraTareas().length }}
           </span>
         }

@@ -8,17 +8,17 @@ import { CommonModule, NgClass } from '@angular/common';
   template: `
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
     <!-- Fecha -->
-    <div class="rounded-xl border border-gray-200 bg-white p-5">
-      <p class="text-xs font-medium uppercase tracking-wide text-gray-400">Fecha</p>
+    <div class="rounded-xl border border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark) p-5">
+      <p class="text-xs font-medium uppercase tracking-wide text-(--color-texto-tertiary-light) dark:text-(--color-texto-tertiary-dark)">Fecha</p>
 
-      <p class="mt-2 text-sm font-semibold text-gray-800">
+      <p class="mt-2 text-sm font-semibold text-(--color-texto-light) dark:text-(--color-texto-dark)">
         {{ tarea().fecha | date: 'dd MMM hh:ss a' }}
       </p>
     </div>
 
     <!-- Prioridad -->
-    <div class="rounded-xl border border-gray-200 bg-white p-5">
-      <p class="text-xs font-medium uppercase tracking-wide text-gray-400">Prioridad</p>
+    <div class="rounded-xl border border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark) p-5">
+      <p class="text-xs font-medium uppercase tracking-wide text-(--color-texto-tertiary-light) dark:text-(--color-texto-tertiary-dark)">Prioridad</p>
 
       <p
         class="mt-2 text-sm font-semibold"
@@ -33,10 +33,10 @@ import { CommonModule, NgClass } from '@angular/common';
     </div>
 
     <!-- Categoría -->
-    <div class="rounded-xl border border-gray-200 bg-white p-5">
-      <p class="text-xs font-medium uppercase tracking-wide text-gray-400">Categoría</p>
+    <div class="rounded-xl border border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-tertiary-dark) p-5">
+      <p class="text-xs font-medium uppercase tracking-wide text-(--color-texto-tertiary-light) dark:text-(--color-texto-tertiary-dark)">Categoría</p>
 
-      <p class="mt-2 text-sm font-semibold text-gray-800">
+      <p class="mt-2 text-sm font-semibold text-(--color-texto-light) dark:text-(--color-texto-dark)">
         {{ tarea().categoria }}
       </p>
     </div>

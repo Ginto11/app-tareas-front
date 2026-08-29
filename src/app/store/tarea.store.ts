@@ -4,6 +4,7 @@ import { computed, inject } from "@angular/core";
 import { TareaService } from "../services/tarea.service";
 import { pipe, switchMap, tap } from "rxjs";
 import { rxMethod } from "@ngrx/signals/rxjs-interop";
+import { ModalService } from "../services/modal.service";
 
 interface TareaState {
     tareas: Tarea[],
@@ -134,6 +135,19 @@ export const TareaStore = signalStore(
         },
         buscarPorCategoria(query: string) {
             patchState(store, { query })
+        },
+        restaurarTareaPorId(id: string):void {
+
+            tareaService.restaurarTarea(id)
+                .subscribe(tareaD => {
+                    patchState(store, (state) => ({
+                        tareas: state.tareas.map((tarea: Tarea) => 
+                            (tarea.id == tareaD!.id)
+                            ? tareaD!
+                            : tarea
+                        )
+                    }))
+                })
         }
     })),
     withHooks((state) => ({

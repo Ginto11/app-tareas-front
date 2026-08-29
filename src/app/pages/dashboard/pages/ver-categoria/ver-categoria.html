@@ -3,9 +3,7 @@
   <div class="flex items-center justify-between">
     <app-header-page anteTitulo="Categoria" [titulo]="titulo() | titlecase" postTitulo="Aquí podras ver todas las tareas de acuerdo a la categoria seleccionada." />
     <div
-      class="px-4 py-2 rounded-xl
-             bg-white border border-gray-200
-             text-sm text-gray-500"
+      class="px-4 py-2 rounded-xl text-sm text-(--color-primary-light) dark:text-(--color-primary-dark) bg-(--color-fondo-secondary-light) dark:bg-(--color-fondo-tertiary-dark)"
     >
       {{ tareaStore.tareasPorCategoria().length }} tareas
     </div>
