@@ -1,0 +1,152 @@
+<div class="relative mx-auto w-full max-w-2xl">
+  <!-- Glow -->
+
+  <div
+    class="pointer-events-none absolute inset-10 rounded-full bg-(--color-primary-light-soft)/70 blur-3xl dark:bg-(--color-primary-dark)/10"
+  ></div>
+
+  <!-- Dashboard Window -->
+
+  <div
+    class="relative overflow-hidden rounded-3xl border border-(--color-border-light) bg-(--color-fondo-tertiary-light) shadow-2xl dark:border-(--color-border-dark) dark:bg-(--color-fondo-dark) dark:shadow-black/40"
+  >
+    <!-- TOP BAR -->
+
+    <div
+      class="flex h-12 items-center justify-between border-b border-(--color-border-light) bg-(--color-navbar-light) px-4 dark:border-(--color-border-dark) dark:bg-(--color-navbar-dark)"
+    >
+      <!-- Window dots -->
+
+      <div class="flex items-center gap-1.5">
+        <span
+          class="h-2.5 w-2.5 rounded-full bg-(--color-danger-light) dark:bg-(--color-danger-dark)"
+        ></span>
+
+        <span
+          class="h-2.5 w-2.5 rounded-full bg-(--color-warning-light) dark:bg-(--color-warning-dark)"
+        ></span>
+
+        <span
+          class="h-2.5 w-2.5 rounded-full bg-(--color-success-light) dark:bg-(--color-success-dark)"
+        ></span>
+      </div>
+
+      <!-- App name -->
+
+      <div
+        class="text-[10px] font-semibold text-(--color-texto-muted-light) dark:text-(--color-texto-muted-dark)"
+      >
+        TaskFlow
+      </div>
+
+      <!-- Fake user -->
+
+      <div
+        class="flex h-7 w-7 items-center justify-center rounded-full bg-(--color-primary-light-soft) text-[9px] font-bold text-(--color-primary-light) dark:bg-(--color-primary-dark)/15 dark:text-(--color-primary-dark)"
+      >
+        NM
+      </div>
+    </div>
+
+    <!-- DASHBOARD CONTENT -->
+
+    <div class="max-h-145 overflow-hidden px-4 py-5 sm:px-6 sm:py-6">
+      <!-- Header -->
+
+      <div class="mb-5">
+        <p
+          class="mb-1 text-[10px] font-medium text-(--color-primary-light) dark:text-(--color-primary-dark)"
+        >
+          Resumen
+        </p>
+
+        <h3
+          class="text-2xl font-bold tracking-tight text-(--color-texto-light) dark:text-(--color-texto-dark)"
+        >
+          Dashboard
+        </h3>
+
+        <p
+          class="mt-2 max-w-2xl text-[11px] leading-5 text-(--color-texto-tertiary-light) dark:text-(--color-texto-secondary-dark)"
+        >
+          Organiza tu día de un vistazo. Consulta el estado de tus tareas, revisa tus pendientes y
+          mantén el control de todo lo que tienes por completar.
+        </p>
+      </div>
+
+      <!-- SUMMARY CARDS -->
+      <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        @for (card of listaTarjetas; track card.icono) {
+            <app-card-resumen [texto]="card.texto" [icono]="card.icono" [cantidad]="card.cantidad" />
+        }
+      </div>
+
+      <!-- FILTERS -->
+
+      <div
+        class="mt-5 flex items-center justify-between gap-3 border-b border-(--color-border-light) dark:border-(--color-border-dark)"
+      >
+        <!-- Tabs -->
+
+        <div class="flex items-center gap-5">
+          <span
+            class="border-b-2 border-(--color-primary-light) pb-2 text-[10px] font-semibold text-(--color-primary-light) dark:border-(--color-primary-dark) dark:text-(--color-primary-dark)"
+          >
+            Todas
+          </span>
+
+          <span
+            class="hidden pb-2 text-[10px] text-(--color-texto-tertiary-light) sm:block dark:text-(--color-texto-muted-dark)"
+          >
+            En Progreso
+          </span>
+
+          <span
+            class="hidden pb-2 text-[10px] text-(--color-texto-tertiary-light) sm:block dark:text-(--color-texto-muted-dark)"
+          >
+            Completadas
+          </span>
+
+          <span
+            class="hidden pb-2 text-[10px] text-(--color-texto-tertiary-light) sm:block dark:text-(--color-texto-muted-dark)"
+          >
+            Pendientes
+          </span>
+        </div>
+
+        <!-- Filter -->
+
+        <div class="flex items-center gap-2 pb-2">
+          <i
+            class="fa-solid fa-filter text-[9px] text-(--color-texto-tertiary-light) dark:text-(--color-texto-muted-dark)"
+          ></i>
+
+          <span
+            class="hidden text-[10px] text-(--color-texto-tertiary-light) sm:block dark:text-(--color-texto-muted-dark)"
+          >
+            Filtrar por:
+          </span>
+
+          <div
+            class="rounded-lg border border-(--color-border-light) bg-(--color-card-light) px-2.5 py-1 text-[10px] text-(--color-texto-secondary-light) dark:border-(--color-border-dark) dark:bg-(--color-card-dark) dark:text-(--color-texto-secondary-dark)"
+          >
+            Estado
+
+            <i class="fa-solid fa-chevron-down ml-2 text-[8px]"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- TASK LIST -->
+
+      <div class="mt-4 flex flex-col gap-3">
+        @for (tarea of tareas; track tarea.id) {
+            <app-card-tarea [cardTarea]="tarea" />
+        }
+        </div>
+    </div>
+  </div>
+
+  <!-- FLOATING STATUS -->
+  <app-status-floating />
+</div>

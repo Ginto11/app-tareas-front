@@ -36,7 +36,7 @@ import { Filtro } from "./components/filtro/filtro";
             <app-contenedor-links [links]="linksParaEstados" />
           }
 
-          <app-filtro />  
+          <app-filtro class="hidden md:block" />  
         </div>
         <!-- Seccion donde se renderiza la lista -->
         <div>

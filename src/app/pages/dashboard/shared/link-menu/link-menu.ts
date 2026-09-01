@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Link } from '../../../../interfaces/link.interface';
 import { CommonModule } from '@angular/common';
 import { TareaStore } from '../../../../store/tarea.store';
+import { EstadoMenuService } from '../../../../services/estado-menu.service';
 
 @Component({
   selector: 'app-link-menu',
@@ -11,6 +12,7 @@ import { TareaStore } from '../../../../store/tarea.store';
   template: `
     <a 
       [routerLink]="dataLink().ruta" 
+      (click)="estadoMenuService.cerrarMenu()"
       routerLinkActive="bg-(--color-fondo-secondary-dark) !border-(--color-primary-dark)"
       [queryParams]="dataLink().queryParams"
       class="w-full text-(--color-texto-dark) flex justify-between items-center rounded-l-xl py-2 px-3 border-r-3 border-transparent hover:bg-(--color-fondo-secondary-dark) ">
@@ -33,4 +35,5 @@ import { TareaStore } from '../../../../store/tarea.store';
 export class LinkMenu {
   public dataLink = input.required<Link>();
   public tareaStore = inject(TareaStore);
+  public estadoMenuService = inject(EstadoMenuService);
 }

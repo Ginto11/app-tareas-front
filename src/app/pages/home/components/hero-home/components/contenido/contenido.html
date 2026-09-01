@@ -1,0 +1,84 @@
+<div>
+  <!-- Badge -->
+  <app-badge />
+
+  <!-- Title -->
+
+  <h1
+    class="max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-(--color-texto-light) sm:text-6xl lg:text-7xl dark:text-(--color-texto-dark)"
+  >
+    Organiza tus tareas.
+
+    <span class="block text-(--color-primary-light) dark:text-(--color-primary-dark)">
+      Enfócate en lo importante.
+    </span>
+  </h1>
+
+  <!-- Description -->
+
+  <p
+    class="mt-7 max-w-xl text-lg leading-8 text-(--color-texto-secondary-light) dark:text-(--color-texto-secondary-dark)"
+  >
+    Gestiona tus tareas de forma sencilla, rápida y organizada. Mantén tus pendientes bajo control y
+    enfócate en completar tus objetivos.
+  </p>
+
+  <!-- Buttons -->
+
+  <div class="mt-9 flex flex-wrap items-center gap-4">
+    <a
+      routerLink="/dashboard"
+      class="group rounded-xl bg-(--color-button-primary-light) px-6 py-3.5 font-semibold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-(--color-button-primary-hover-light) dark:bg-(--color-button-primary-dark) dark:hover:bg-(--color-button-primary-hover-dark)"
+    >
+      Comenzar ahora
+
+      <span class="ml-2 transition group-hover:translate-x-1"> → </span>
+    </a>
+
+    <a
+      [routerLink]="['/']"
+      fragment="caracteristicas"
+      class="rounded-xl border border-(--color-border-light) bg-(--color-button-secondary-light) px-6 py-3.5 font-semibold text-(--color-texto-secondary-light) shadow-sm transition hover:border-(--color-border-secondary-light) hover:bg-(--color-button-secondary-hover-light) dark:border-(--color-border-dark) dark:bg-(--color-button-secondary-dark) dark:text-(--color-texto-dark) dark:hover:border-(--color-primary-dark) dark:hover:bg-(--color-button-secondary-hover-dark)"
+    >
+      Conocer más
+    </a>
+  </div>
+
+  <!-- Stats -->
+
+  <div class="mt-10 flex flex-wrap gap-8">
+    <div>
+      <p class="text-2xl font-bold text-(--color-texto-light) dark:text-(--color-texto-dark)">
+        100%
+      </p>
+
+      <p class="text-sm text-(--color-texto-tertiary-light) dark:text-(--color-texto-muted-dark)">
+        Organización
+      </p>
+    </div>
+
+    <div class="h-10 w-px bg-(--color-border-light) dark:bg-(--color-border-dark)"></div>
+
+    <div>
+      <p class="text-2xl font-bold text-(--color-texto-light) dark:text-(--color-texto-dark)">
+        Simple
+      </p>
+
+      <p class="text-sm text-(--color-texto-tertiary-light) dark:text-(--color-texto-muted-dark)">
+        Fácil de usar
+      </p>
+    </div>
+
+    <div class="h-10 w-px bg-(--color-border-light) dark:bg-(--color-border-dark)"></div>
+
+    <div>
+      <p class="text-2xl font-bold text-(--color-texto-light) dark:text-(--color-texto-dark)">
+        24/7
+      </p>
+
+      <p class="text-sm text-(--color-texto-tertiary-light) dark:text-(--color-texto-muted-dark)">
+        Disponible
+      </p>
+    </div>
+  </div>
+</div>

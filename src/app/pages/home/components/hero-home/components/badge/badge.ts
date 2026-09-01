@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-badge',
   imports: [],
-  templateUrl: './header.html',
+  templateUrl: './badge.html',
   styles: ``,
 })
-export class Header {
+export class Badge {
 
 }
