@@ -1,5 +1,5 @@
-<header class="border-b border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-dark) py-5 md:py-0 px-5 md:px-10">
-    <div class="md:h-20 flex justify-between items-center">
+<header class="md:flex md:items-center md:justify-between w-full border-b border-(--color-border-light) dark:border-(--color-border-dark) bg-(--color-fondo-light) dark:bg-(--color-fondo-dark) py-5 md:py-0 px-5 md:px-10">
+    <div class="md:h-20 flex-1 flex justify-between items-center">
         <h1 class="text-xl mb-1 md:mb-0 md:text-2xl lg:text-4xl font-medium text-(--color-texto-light) dark:text-(--color-texto-dark)">
             <!-- BOTON PARA MOVILE -->
             <button (click)="estadoMenuService.intercambiarValor()" class="inline lg:hidden cursor-pointer">
@@ -7,70 +7,11 @@
             </button>
             ¡Hola, Nelson!
         </h1>
+        <app-btn-theme class="md:hidden" />
         <!-- MENU DE BUSQUEDA PARA LA WEB -->
-        <div class="hidden md:flex gap-4">
-            <div class="relative flex-1">
-
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-
-                <input
-                    #busquedaM
-                    type="text"
-                    (keydown.enter)="buscarTareas(busquedaM)"
-                    placeholder="Buscar tareas..."
-                    class="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
-                />
-
-            </div>
-            <button 
-                (click)="buscarTareas(busquedaM)"
-                class="cursor-pointer shadow px-3 rounded-xl
-                bg-(--color-primary-light) hover:bg-(--color-primary-hover-light) text-(--color-texto-dark) 
-                dark:bg-(--color-primary-light)">
-                Buscar
-            </button>
-            <a 
-                routerLink="/dashboard/nueva-tarea" 
-                routerLinkActive="!bg-(--color-primary-light)"
-                [routerLinkActiveOptions]="{ exact: true }"
-                class="
-                px-3 rounded-xl flex items-center shadow
-                bg-(--color-primary-light) hover:bg-(--color-primary-hover-light) text-(--color-texto-dark)
-                dark:bg-(--color-primary-light) dark:text-(--color-texto-dark)">
-                <i class="fa-solid fa-plus"></i>
-                Nueva Tarea
-            </a>
-            <app-btn-theme />
-        </div>
     </div>
+    <app-header-dashboard-menu-web />
     <!-- MENU DE BUSQUEDA PARA MOBILE -->
-    <div class="flex md:hidden gap-2">
-            <div class="relative flex-1">
-
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-
-                <input
-                    #busqueda
-                    type="text"
-                    (keydown.enter)="buscarTareas(busqueda)"
-                    placeholder="Buscar tareas..."
-                    class="w-full rounded-xl border border-gray-200 bg-gray-50 py-1 pl-11 pr-4 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-(--color-fondo-boton) focus:bg-white focus:ring-2 focus:ring-(--color-fondo-boton)"
-                />
-
-            </div>
-            <button 
-                (click)="buscarTareas(busqueda)"
-                class="cursor-pointer bg-(--color-primary-dark) text-gray-900 shadow px-2 md:px-3 rounded-xl">
-                Buscar
-            </button>
-            <a 
-                routerLink="/dashboard/nueva-tarea" 
-                routerLinkActive="!bg-(--color-fondo-boton)"
-                [routerLinkActiveOptions]="{ exact: true }"
-                class="bg-(--color-fondo-boton)/50 text-gray-900 px-2 md:px-3 rounded-xl flex items-center shadow">
-                <i class="fa-solid fa-plus"></i>
-                Nueva
-            </a>
-        </div>
+    <app-header-dashboard-menu-mobile />
 
 </header>

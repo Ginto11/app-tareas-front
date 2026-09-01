@@ -30,6 +30,10 @@ export const routes: Routes = [
                 ]
             },
             {
+                path: 'perfil',
+                loadComponent: () => import('./pages/dashboard/pages/perfil-usuario/perfil-usuario')
+            },
+            {
                 path:'nueva-tarea',
                 loadComponent: () => import('./pages/dashboard/pages/nueva-tarea/nueva-tarea')
             },

@@ -1,0 +1,140 @@
+<header
+    class="
+      fixed top-0 left-0 z-50 w-full
+      border-b border-(--color-navbar-border-light)
+      bg-(--color-navbar-light)/85
+      backdrop-blur-xl
+
+      dark:border-(--color-navbar-border-dark)
+      dark:bg-(--color-navbar-dark)/90
+    "
+  >
+    <nav
+      class="
+        mx-auto flex h-18 max-w-7xl items-center justify-between
+        px-6 lg:px-8
+      "
+    >
+      <!-- Logo -->
+
+      <a routerLink="/" class="flex items-center gap-3">
+        <div
+          class="
+            flex h-10 w-10 items-center justify-center
+            rounded-xl
+            bg-(--color-primary-light)
+            text-lg font-bold text-white
+            shadow-lg
+
+            dark:bg-(--color-primary-dark)
+          "
+        >
+          ✓
+        </div>
+
+        <span
+          class="
+            text-xl font-bold tracking-tight
+            text-(--color-texto-light)
+
+            dark:text-(--color-texto-dark)
+          "
+        >
+          TaskFlow
+        </span>
+      </a>
+
+      <!-- Links -->
+
+      <div class="hidden items-center gap-8 md:flex">
+        <a
+          [routerLink]="['/']"
+          fragment="caracteristicas"
+          class="
+            text-sm font-medium
+            text-(--color-texto-secondary-light)
+            transition
+            hover:text-(--color-primary-light)
+
+            dark:text-(--color-texto-secondary-dark)
+            dark:hover:text-(--color-primary-dark)
+          "
+        >
+          Características
+        </a>
+
+        <a
+          [routerLink]="['/']"
+          fragment="como-funciona"
+          class="
+            text-sm font-medium
+            text-(--color-texto-secondary-light)
+            transition
+            hover:text-(--color-primary-light)
+
+            dark:text-(--color-texto-secondary-dark)
+            dark:hover:text-(--color-primary-dark)
+          "
+        >
+          Cómo funciona
+        </a>
+
+        <a
+          [routerLink]="['/']"
+          fragment="productividad"
+          class="
+            text-sm font-medium
+            text-(--color-texto-secondary-light)
+            transition
+            hover:text-(--color-primary-light)
+
+            dark:text-(--color-texto-secondary-dark)
+            dark:hover:text-(--color-primary-dark)
+          "
+        >
+          Productividad
+        </a>
+      </div>
+
+      <!-- Actions -->
+
+      <div class="flex items-center gap-3">
+        <a
+          routerLink="/login"
+          class="
+            hidden px-4 py-2 text-sm font-semibold
+            text-(--color-texto-secondary-light)
+            transition
+            hover:text-(--color-primary-light)
+            sm:block
+
+            dark:text-(--color-texto-secondary-dark)
+            dark:hover:text-(--color-primary-dark)
+          "
+        >
+          Iniciar sesión
+        </a>
+
+        <a
+          routerLink="/dashboard"
+          class="
+            rounded-xl
+            bg-(--color-button-primary-light)
+            px-5 py-2.5
+            text-sm font-semibold text-white
+            shadow-lg
+            transition
+            hover:-translate-y-0.5
+            hover:bg-(--color-button-primary-hover-light)
+
+            dark:bg-(--color-button-primary-dark)
+            dark:hover:bg-(--color-button-primary-hover-dark)
+          "
+        >
+          Comenzar
+        </a>
+
+        <app-btn-theme />
+      </div>
+    </nav>
+  </header>

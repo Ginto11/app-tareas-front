@@ -4,10 +4,12 @@ import { TareaStore } from '../../../../store/tarea.store';
 import Swal from 'sweetalert2';
 import { EstadoMenuService } from '../../../../services/estado-menu.service';
 import { BtnTheme } from "../../../../shared/btn-theme/btn-theme";
+import { HeaderDashboardMenuWeb } from './components/header-dashboard-menu-web';
+import { HeaderDashboardMenuMobile } from './components/header-dashboard-menu-mobile';
 
 @Component({
   selector: 'app-header-dashboard',
-  imports: [RouterLink, RouterLinkActive, BtnTheme],
+  imports: [BtnTheme, HeaderDashboardMenuWeb, HeaderDashboardMenuMobile],
   templateUrl: './header-dashboard.html',
   styles: ``,
 })

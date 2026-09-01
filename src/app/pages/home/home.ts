@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Header } from './components/header/header';
 import { RouterLink } from '@angular/router';
-import { BtnTheme } from "../../shared/btn-theme/btn-theme";
+import { HeaderHome } from './components/header-home/header-home';
+import { HeroHome } from "./components/hero-home/hero-home";
+import { SectionHome } from "./components/section-home/section-home";
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, BtnTheme],
+  imports: [RouterLink, HeaderHome, HeroHome, SectionHome],
   templateUrl: './home.html',
   styles: ``,
 })
